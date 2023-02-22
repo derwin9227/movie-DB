@@ -1,5 +1,7 @@
+body{
+    background-color: blanchedalmond;
+}
 .container{
-
     display: grid;
     grid-template-columns: auto auto auto auto;
     align-items: center;
@@ -52,6 +54,10 @@ h1{
     height: 100%;
     overflow: visible;
     border-radius: .7rem;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+   
    }
    
    .card .title {
@@ -70,7 +76,21 @@ h1{
     transition: color 1s;
    }
    /* fin card */
+.botones{
+    text-align: center;
+    border: 1px solid black;
+}
 
+.btnSiguiente{
+    background-color: red;
+    margin: auto;
+}
+.btnAnterior{
+    background-color: red;
+    margin: auto;
+}
+
+   /* Media Queries */
 @media (max-width: 640px){
     .container{
         grid-template-columns: auto auto;
