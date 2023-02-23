@@ -10,6 +10,33 @@ body{
 h1{
     text-align: center;
 }
+.botonesBuscar{
+    text-align: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: grid;
+}
+.botonesSigAnt{
+    text-align: center;
+}
+input{
+    border-radius: 5px;
+    margin: 0.3rem auto;
+    border: none;
+    box-shadow: 1.5px 1.5px 7px black;
+    width: 70%;
+    align-items: center;
+    
+}
+.buscarPelicula{
+    border-radius: 3px;
+    margin: 0.3rem auto;
+    border: none;
+    background-color:rgb(31, 40, 212);
+    color: white;
+    width: fit-content;
+}
 
 /* card */
 .card {
@@ -24,7 +51,7 @@ h1{
     position: relative;
     z-index: 1;
     /* -------------------- */
-    margin: 5px auto;
+    margin: 1rem auto;
    }
    
    .card::after {
@@ -76,10 +103,6 @@ h1{
     transition: color 1s;
    }
    /* fin card */
-.botones{
-    text-align: center;
-    border: 1px solid black;
-}
 
    /* Media Queries */
 @media (max-width: 640px){
