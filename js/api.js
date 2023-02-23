@@ -7,13 +7,13 @@ const buscarPelicula = document.querySelector(".buscarPelicula");
 const inputBuscar = document.querySelector(".inputBuscar");
 let paginaActual=1, totalPaginas=0;
 
-let templateMovie = (nombre,imagen,overview,average) => `<div class="card">
-            <span>${average}</span>
+let templateMovie = (nombre,imagen,overview="",average="") => `<div class="card">
             <div class="card-info" style="background-image: url('https://image.tmdb.org/t/p/w500${imagen}')">
                 <p class="title">${nombre}</p>
             </div>
-        </div>
-        <p>${overview}</p>`;
+        </div>`;
+        /*<span>${average}</span>
+         <p>${overview}</p> */
 const container = document.querySelector(".container");
 
 const cargarpeliculas = (direccionPeliculas) => {fetch(direccionPeliculas)
