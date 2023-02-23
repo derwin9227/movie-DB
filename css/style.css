@@ -72,22 +72,13 @@ h1{
    }
    
    .card:hover .card-info {
-    color: #f7ba2b;
+    color: #f7ba2b;;
     transition: color 1s;
    }
    /* fin card */
 .botones{
     text-align: center;
     border: 1px solid black;
-}
-
-.btnSiguiente{
-    background-color: red;
-    margin: auto;
-}
-.btnAnterior{
-    background-color: red;
-    margin: auto;
 }
 
    /* Media Queries */
