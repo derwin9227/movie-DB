@@ -7,13 +7,14 @@ const buscarPelicula = document.querySelector(".buscarPelicula");
 const inputBuscar = document.querySelector(".inputBuscar");
 let paginaActual=1, totalPaginas=0;
 
-let templateMovie = (nombre,imagen,overview="",average="") => `<div class="card">
-            <div class="card-info" style="background-image: url('https://image.tmdb.org/t/p/w500${imagen}')">
-                <p class="title">${nombre}</p>
+let templateMovie = (nombre,imagen,average) => `
+        <div class="wrapper">
+            <div class="banner-image" style="background-image: url('https://image.tmdb.org/t/p/w500${imagen}')"> </div>
+                <span class="average">${average}</span>
+                <h3>${nombre}</h3>
             </div>
-        </div>`;
-        /*<span>${average}</span>
-         <p>${overview}</p> */
+        </div>`
+
 const container = document.querySelector(".container");
 
 const cargarpeliculas = (direccionPeliculas) => {fetch(direccionPeliculas)
@@ -21,10 +22,12 @@ const cargarpeliculas = (direccionPeliculas) => {fetch(direccionPeliculas)
     .then(e => {
         container.innerHTML = "";
         totalPaginas = e.total_pages;
-        e.results.forEach(element => {
-            container.innerHTML += templateMovie(element.title, element.poster_path, element.overview, element.vote_average);
-            console.log(element);
-        });
+        console.log(e);
+        
+            e.results.forEach(element => {
+                if(element.poster_path!==null)                
+                    container.innerHTML += templateMovie(element.title, (element.poster_path=null ? imagen="No hay imagen para mostrar" : element.poster_path), element.vote_average.toFixed(1));
+            });
     
     })
     .catch(e => console.log(e));
@@ -62,5 +65,3 @@ inputBuscar.addEventListener("keypress", key => {
     url=`https://api.themoviedb.org/3/search/movie?query=${inputBuscar.value}&api_key=04495d415fb68e0f9f995482a0e44084`;
     cargarpeliculas(url)}
 });
-//buscar
-//https://api.themoviedb.org/3/search/movie?query=pantera&api_key=04495d415fb68e0f9f995482a0e44084
