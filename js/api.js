@@ -9,7 +9,7 @@ let paginaActual=1, totalPaginas=0;
 
 let templateMovie = (nombre,imagen,average) => `
         <div class="wrapper">
-            <div class="banner-image" style="background-image: url('https://image.tmdb.org/t/p/w500${imagen}')"> </div>
+            <img class="banner-image" src="https://image.tmdb.org/t/p/w500${imagen}">
                 <span class="average">${average}</span>
                 <h3>${nombre}</h3>
             </div>
@@ -22,13 +22,11 @@ const cargarpeliculas = (direccionPeliculas) => {fetch(direccionPeliculas)
     .then(e => {
         container.innerHTML = "";
         totalPaginas = e.total_pages;
-        console.log(e);
-        
-            e.results.forEach(element => {
+           e.results.forEach(element => {
                 if(element.poster_path!==null)                
                     container.innerHTML += templateMovie(element.title, (element.poster_path=null ? imagen="No hay imagen para mostrar" : element.poster_path), element.vote_average.toFixed(1));
+                    console.log(element);
             });
-    
     })
     .catch(e => console.log(e));
 }
